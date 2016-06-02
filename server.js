@@ -6,6 +6,8 @@ const bodyParser     = require('body-parser');
 const moment         = require('moment');
 const app            = express();
 
+// Run "npm run bundle" (to get all of the javascript working) and then nodemon (to get the server running)
+
 if(process.env.NODE_ENV === 'dev'){
   app.use(logger('dev'));
 } else {
@@ -26,6 +28,6 @@ app.get ('*', (req, res)=>{
   res.render('pages/home');
 })
 
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 3000;
 var currentDateTime = moment().format('MMMM Do YYYY, h:mm:ss a');
 var server = app.listen(port, ()=>console.log('Server online, Sir. Date and time is ' + currentDateTime));

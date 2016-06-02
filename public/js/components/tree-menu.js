@@ -2,25 +2,22 @@ import React            from 'react';
 import $                from 'jquery';
 import moment           from 'moment';
 
-// Notes:
-// Could switch some things around to allow user to click on the name and not just the arrow to toggle the menu items
-
 export default React.createClass({
 
   getInitialState(){
     return {
-      items: ['link one', ['link two', ['link three'], ['link four', ['link five'], ['link six']]]] // example nested tree menu array
+      items: [['link one', ['link two'], ['link three', ['link four'], ['link five']]]] // example nested tree menu array
     }
   },
 
   componentDidMount(){
-    $('.menu-arrow-button').click(function(event){
+    $('.menu-button').click(function(event){
       event.stopPropagation();
-      $(this).siblings().slideToggle('slow');
-      if (  $( this ).css( "transform" ) == 'none' ){
-        $(this).css("transform","rotate(90deg)");
+      $(this).siblings('.menu-content').slideToggle('slow');
+      if (  $(this).children('.menu-arrow').css( "transform" ) == 'none' ){
+        $(this).children('.menu-arrow').css("transform","rotate(90deg)");
       } else {
-        $(this).css("transform","" );
+        $(this).children('.menu-arrow').css("transform","" );
       }
     });
   },
@@ -29,10 +26,12 @@ export default React.createClass({
 
     if(Array.isArray(item)){ //assumes that if the item is an array, it is a parent node and renders as such
       return (
-        <div>
-          <div className="menu-arrow-button"></div>
-          parent name {/* In place of the static "parent name" text, you might have the parent name rendered from an object in the array */}
-          <div key={key} className="menu-parent">
+        <div className="menu">
+          <div className="menu-button">
+            <div className="menu-arrow"></div>
+            <span className="parent-name">parent name</span> {/* In place of the static "parent name" text, you might have the parent name rendered from an object in the array */}
+          </div>
+          <div key={key} className="menu-content">
             {item.map(this.renderItems)}
           </div>
         </div>
@@ -49,7 +48,8 @@ export default React.createClass({
   render(){
 
     return(
-      <div>
+      <div id="menu-component">
+        <h3>Tree Menu</h3>
         {this.state.items.map(this.renderItems)}
       </div>
     )

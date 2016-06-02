@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-.menu-arrow-button {
+.menu-arrow {
   height: 8px;
   width: 10px;
   display: inline-flex;
@@ -21,6 +21,27 @@
   transition-property: transform;
 }
 
-.menu-parent {
+.menu-content {
   display: none;
+}
+
+.parent-name {
+  font: bold 16px serif;
+}
+
+.menu-child {
+  margin-left: 20px;
+}
+
+.menu {
+  margin-left: 20px;
+}
+
+#menu-component {
+  margin: 6px;
+  padding: 6px;
+  width: 200px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 6px;
 }
