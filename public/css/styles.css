@@ -1,0 +1,26 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.menu-arrow-button {
+  height: 8px;
+  width: 10px;
+  display: inline-flex;
+  background-image: url("../images/arrow.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+}
+
+.menu-parent {
+  display: none;
+}
