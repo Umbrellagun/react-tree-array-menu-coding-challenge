@@ -2,9 +2,6 @@ import React            from 'react';
 import $                from 'jquery';
 import moment           from 'moment';
 
-//Note:
-//Spam clicking can cause the arrow to not be turned the right way
-
 export default React.createClass({
 
   getInitialState(){
@@ -18,7 +15,7 @@ export default React.createClass({
       event.stopPropagation();
 
       $(this).siblings('.menu-content').slideToggle('slow');
-      
+
       if (  $(this).children('.menu-arrow').css( "transform" ) == 'none' ){
         $(this).children('.menu-arrow').css("transform","rotate(90deg)");
       } else {

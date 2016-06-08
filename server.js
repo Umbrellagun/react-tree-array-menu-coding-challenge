@@ -6,8 +6,6 @@ const bodyParser     = require('body-parser');
 const moment         = require('moment');
 const app            = express();
 
-// Run "npm run bundle" (to get all of the javascript working) and then npm start (to get the server running)
-
 if(process.env.NODE_ENV === 'dev'){
   app.use(logger('dev'));
 } else {
